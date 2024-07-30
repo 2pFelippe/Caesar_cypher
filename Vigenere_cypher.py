@@ -1,5 +1,6 @@
 text = input('Which message should be encrypted?')
 custom_key = input('What is the key for encyption?')
+query_result = int(input('Type 1 for encrpytion, type 2 for decryption'))
 
 def vigenere(message, key, direction=1):
     key_index = 0
@@ -30,7 +31,16 @@ def encrypt(message, key):
 def decrypt(message, key):
     return vigenere(message, key, -1)
 
-print(f'\nEncrypted text: {text}')
-print(f'Key: {custom_key}')
-decryption = decrypt(text, custom_key)
-print(f'\nDecrypted text: {decryption}\n')
+if query_result == 1:
+    encryption = encrypt(text, custom_key)
+    print(f'\nEncrypted text: {encryption}')
+    print(f'Key: {custom_key}')
+    print(f'\nDecrypted text: {text}\n')
+elif query_result == 2:
+    print(f'\nEncrypted text: {text}')
+    print(f'Key: {custom_key}')
+    decryption = decrypt(text, custom_key)
+    print(f'\nDecrypted text: {decryption}\n')
+else:
+    print('Invalid input value')
+    quit()
